@@ -1,38 +1,187 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
+
+:root {
+  /* FONT-FAMILY-VARIABLE */
+  --FF: "Handlee", cursive;
+
+  /* COLORS-VARIABLE */
+  --BODY-BG-COLOR: #fffdd0;
+  --BODY-BG-IMG: linear-gradient(to left, #9f98e8, #aff6cf);
+  --NAV-BG-COLOR: linear-gradient(to left, #aff1da, #deebdd);
+  --THEME-COLOR: #2a2a2a;
+  --ICON-COLOR: #2a2a2a;
+  --COLOR: black;
+  --ERROR-COLOR: #ff0033;
+
+  /* SHADOW */
+  --SHADOW: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--FF);
+}
+
+/* DARK-MODE TOGGLE */
+
+.dark-mode {
+  /* COLORS-VARIABLE */
+  --BODY-BG-COLOR: black;
+  --BODY-BG-IMG: linear-gradient(to left, #281c2d, var(--BODY-BG-COLOR));
+  --NAV-BG-COLOR: linear-gradient(to left, rgb(15, 15, 15), #1d1d1d);
+  --THEME-COLOR: #8155ba;
+  --ICON-COLOR: #8155ba;
+  --COLOR: #fffdd0;
+  --ERROR-COLOR: #ff0033;
+
+  /* SHADOW */
+  --SHADOW: 0px 5px 10px 0px rgba(0, 0, 0, 0.6);
+}
+
+body {
+  background-color: var(--BODY-BG-COLOR);
+  background-image: var(--BODY-BG-IMG);
+  color: var(--COLOR);
+}
+
+/* UTILITY-FUNCTIONS */
+
+.fig-caption {
+  top: -999px;
+  left: 0;
+  position: absolute;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+a {
+  color: var(--ICON-COLOR);
+  text-decoration: none;
+}
+
+/* HEADER */
+.app-name {
   text-align: center;
+  padding: 4rem;
+  color: var(--COLOR);
+  letter-spacing: 3px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* SEARCHBAR */
+.searchbar {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search-input {
+  border: none;
+  background-color: var(--BODY-BG-COLOR);
+  background-image: var(--BODY-BG-IMG);
+  color: var(--COLOR);
+  padding: 1rem;
+  width: 30rem;
+  box-shadow: var(--SHADOW);
+  border-radius: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-input:focus {
+  outline: none !important;
+  border-width: 1px;
+  border-color: var(--COLOR);
+  border-style: solid;
+}
+
+.search-icon {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+/* MOVIE-CARD */
+
+.movie-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  border-radius: 0.8rem;
+  justify-content: space-between;
+  align-items: left;
+  cursor: pointer;
+  box-shadow: var(--SHADOW);
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.movie-card:focus,
+.movie-card:hover {
+  transform: scale(1.02);
+  transition: all 0.5s;
+}
+
+.movie-year {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  margin: 1rem;
+  top: 0;
+  color: var(--BODY-BG-COLOR);
+  z-index: 2;
+}
+
+.movie-card div:nth-of-type(3) {
+  z-index: 2;
+  background-color: var(--THEME-COLOR);
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.movie-type {
+  text-transform: uppercase;
+  margin: 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: var(--BODY-BG-COLOR);
+}
+
+.movie-title {
+  margin: 0.5rem;
+  color: var(--BODY-BG-COLOR);
+  font-weight: 200;
+}
+
+.movie-card:hover div:nth-of-type(1) {
+  opacity: 1;
+}
+
+.movie-card:hover div:nth-of-type(2) {
+  height: 100%;
+  opacity: 0.3;
+}
+
+.movie-card:hover div:nth-of-type(3) {
+  background-color: transparent;
+}
+
+/* MOVIE-CONTAINER */
+
+.movie-container {
+  margin-top: 4rem;
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  justify-items: center;
+  column-gap: 2rem;
+  row-gap: 6rem;
 }
