@@ -5,12 +5,11 @@
   --FF: "Handlee", cursive;
 
   /* COLORS-VARIABLE */
-  --BODY-BG-COLOR: #fffdd0;
-  --BODY-BG-IMG: linear-gradient(to left, #9f98e8, #aff6cf);
-  --NAV-BG-COLOR: linear-gradient(to left, #aff1da, #deebdd);
-  --THEME-COLOR: #2a2a2a;
-  --ICON-COLOR: #2a2a2a;
-  --COLOR: black;
+  --BODY-BG-COLOR: black;
+  --BODY-BG-IMG: linear-gradient(to left, var(--BODY-BG-COLOR), #2d3436);
+  --SEARCH-BG-COLOR: linear-gradient(to right, #e8dbfc, #f8f9d2);
+  --THEME-COLOR: #5e5c5c;
+  --COLOR: #fffdd0;
   --ERROR-COLOR: #ff0033;
 
   /* SHADOW */
@@ -27,15 +26,14 @@ html {
 .dark-mode {
   /* COLORS-VARIABLE */
   --BODY-BG-COLOR: black;
-  --BODY-BG-IMG: linear-gradient(to left, #281c2d, var(--BODY-BG-COLOR));
-  --NAV-BG-COLOR: linear-gradient(to left, rgb(15, 15, 15), #1d1d1d);
-  --THEME-COLOR: #8155ba;
-  --ICON-COLOR: #8155ba;
+  --BODY-BG-IMG: linear-gradient(to left, var(--BODY-BG-COLOR), #2d3436);
+  --SEARCH-BG-COLOR: linear-gradient(to right, #e8dbfc, #f8f9d2);
+  --THEME-COLOR: #5e5c5c;
   --COLOR: #fffdd0;
   --ERROR-COLOR: #ff0033;
 
   /* SHADOW */
-  --SHADOW: 0px 5px 10px 0px rgba(0, 0, 0, 0.6);
+  --SHADOW: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -57,7 +55,7 @@ body {
 }
 
 a {
-  color: var(--ICON-COLOR);
+  color: var(--THEME-COLOR);
   text-decoration: none;
 }
 
@@ -82,9 +80,9 @@ a {
 
 .search-input {
   border: none;
-  background-color: var(--BODY-BG-COLOR);
-  background-image: var(--BODY-BG-IMG);
-  color: var(--COLOR);
+  background-color: var(--SEARCH-BG-COLOR);
+  background-image: var(--SEARCH-BG-COLOR);
+  color: var(--BODY-BG-COLOR);
   padding: 1rem;
   width: 30rem;
   box-shadow: var(--SHADOW);
@@ -93,9 +91,9 @@ a {
 
 .search-input:focus {
   outline: none !important;
-  border-width: 1px;
-  border-color: var(--COLOR);
+  border-width: 2px;
   border-style: solid;
+  border-color: var(--BODY-BG-COLOR);
 }
 
 .search-icon {
@@ -116,6 +114,7 @@ a {
   box-shadow: var(--SHADOW);
   flex-wrap: nowrap;
   position: relative;
+  color: var(--COLOR);
 }
 
 .movie-card:focus,
@@ -130,7 +129,6 @@ a {
   opacity: 0;
   margin: 1rem;
   top: 0;
-  color: var(--BODY-BG-COLOR);
   z-index: 2;
 }
 
@@ -150,12 +148,10 @@ a {
   font-size: 0.8rem;
   letter-spacing: 2px;
   font-weight: 500;
-  color: var(--BODY-BG-COLOR);
 }
 
 .movie-title {
   margin: 0.5rem;
-  color: var(--BODY-BG-COLOR);
   font-weight: 200;
 }
 
@@ -184,4 +180,61 @@ a {
   justify-items: center;
   column-gap: 2rem;
   row-gap: 6rem;
+}
+
+/* ERROR-CAPTURE */
+
+.error-c {
+  padding: 2rem 6rem;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 6rem;
+}
+
+.error-c-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.error-c-heading {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: var(--ERROR-COLOR);
+}
+
+.error-c-heading::after {
+  content: "—";
+  display: block;
+}
+
+.error-c-text {
+  color: black;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.error-c-btn {
+  background-color: var(--ERROR-COLOR);
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  align-items: center;
+  display: inline-block;
+}
+
+.error-c-btn-text {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.error-c-img {
+  width: 40%;
 }
