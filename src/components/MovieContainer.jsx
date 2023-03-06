@@ -1,18 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import MovieCard from "./MovieCard";
 import ErrorCapture from "../components/ErrorCapture";
 
-const API_KEY = "25be1a64";
-const BASE_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`;
-
-function MovieContainer() {
-  const [films, setFilms] = useState([]);
-
-  const searchFilms = async function (title) {
-    const response = await fetch(`${BASE_URL}&s=${title}`);
-    const data = await response.json();
-    setFilms(data.Search);
-  };
+function MovieContainer(props) {
+  const { films, searchFilms } = props;
 
   useEffect(() => {
     searchFilms("Avenger");

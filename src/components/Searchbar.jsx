@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 
-function Searchbar() {
+function Searchbar(props) {
+  const { searchFilms } = props;
   const [searchInput, setsearchInput] = useState("");
 
   const handleSearchInput = function (e) {
@@ -9,7 +10,7 @@ function Searchbar() {
   };
 
   const handleSearch = function () {
-    console.log("Search icon clicked");
+    searchFilms(searchInput);
   };
 
   return (
