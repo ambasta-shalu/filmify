@@ -185,17 +185,7 @@ a {
 /* ERROR-CAPTURE */
 
 .error-c {
-  padding: 2rem 6rem;
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  gap: 6rem;
-}
-
-.error-c-content {
+  padding: 4rem 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -215,7 +205,7 @@ a {
 }
 
 .error-c-text {
-  color: black;
+  color: white;
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-size: 1.5rem;
@@ -233,8 +223,4 @@ a {
 .error-c-btn-text {
   color: white;
   font-size: 1.2rem;
-}
-
-.error-c-img {
-  width: 40%;
 }
