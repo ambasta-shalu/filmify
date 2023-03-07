@@ -204,3 +204,14 @@ a {
   padding-top: 4rem;
   font-size: 1.5rem;
 }
+
+/* LOADING SPINNER */
+
+.loading-spinner {
+  padding: 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
