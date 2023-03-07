@@ -1,16 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import { BsSearch } from "react-icons/bs";
 
 function Searchbar(props) {
-  const { searchFilms } = props;
-  const [searchInput, setsearchInput] = useState("");
+  const { searchInput, setsearchInput, searchFilms } = props;
 
   const handleSearchInput = function (e) {
     setsearchInput(e.target.value);
   };
 
   const handleSearch = function () {
-    searchFilms(searchInput);
+    if (searchInput.length > 0 && isAlpha(searchInput)) {
+      searchFilms(searchInput);
+    } else {
+      alert(`${searchInput} not valid string`);
+      setsearchInput("");
+    }
+  };
+
+  const isAlpha = function (str) {
+    return /^[a-zA-Z]+$/.test(str);
   };
 
   return (

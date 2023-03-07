@@ -10,7 +10,7 @@
   --SEARCH-BG-COLOR: linear-gradient(to right, #e8dbfc, #f8f9d2);
   --THEME-COLOR: #5e5c5c;
   --COLOR: #fffdd0;
-  --ERROR-COLOR: #ff0033;
+  --ERROR-COLOR: #de3163;
 
   /* SHADOW */
   --SHADOW: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
@@ -199,14 +199,8 @@ a {
   color: var(--ERROR-COLOR);
 }
 
-.error-c-heading::after {
-  content: "—";
-  display: block;
-}
-
 .error-c-text {
-  color: white;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  color: var(--ERROR-COLOR);
+  padding-top: 4rem;
   font-size: 1.5rem;
 }
